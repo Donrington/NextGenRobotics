@@ -1,0 +1,2158 @@
+
+/* BASIC COLORS & SPACING (Optional Custom Vars) */
+:root {
+  /* Light gradient background */
+  --bg-gradient: linear-gradient(135deg, #f9f9f9 20%, #f0f0f0 100%);
+  --bg-white:  #ffffff;
+  --text-dark: #333;
+  --text-muted: #777; 
+  --highlight-color: #000; /* used for button hover or borders */
+
+  /* Font families, adjust as needed */
+  --primary-font: 'Montserrat', sans-serif;
+ 
+    /* Lighter background, more neutral to suit the white/clean aesthetic */
+    --dark-olive: #f4f4f4;  /* Changed to light gray for a softer background */
+    --brand-green: #8dc63f;
+    --white: #ffffff;
+    --text-light: #f0f0f0;
+    --text-muted: #b1b1b1;
+    --text-dark: #111;
+    
+    --font-family: 'Montserrat', sans-serif;
+    --transition-speed: 0.4s ease;
+    
+    /* Sizing */
+    --section-padding: 4rem 2rem;
+    --container-width: 1200px;
+    
+    /* Font sizes */
+    --title-size: 1rem;
+    --subtitle-size: 2.5rem; /* bigger for that bold headline */
+    --category-size: 1.2rem;
+    --caption-title: 1rem;
+    --caption-sub: 0.9rem;
+ 
+}
+
+
+
+/* Hide the default cursor */
+body {
+    cursor: none;
+  }
+  
+  /* Custom Cursor Base Style */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color:  #8dc63f;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+    z-index: 9999;
+  }
+  
+  /* When hovering over interactive elements */
+  .custom-cursor.cursor-hover {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Use a pseudo-element to display a FontAwesome icon when enlarged */
+  .custom-cursor.cursor-hover::before {
+    content: "\f0a4"; /* Example icon: fa-hand-pointer (FontAwesome Unicode) */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  /* Hide the icon when not hovered */
+  .custom-cursor::before {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }.hero-text {
+    font-family: 'Poiret One', cursive;
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: #fff;
+    animation: fadeInText 1.5s ease-in-out;
+    position: relative;
+  }
+  
+  @keyframes fadeInText {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Base style for each word */
+  .hero-text span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  /* Glitch effect layers (unchanged from original) */
+  .hero-text span::before,
+  .hero-text span::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 9000px, 0, 0);
+  }
+  
+  .hero-text span::before {
+    color: #8dc63f;
+    z-index: -1;
+    animation: glitchAnim 2.5s infinite linear alternate-reverse;
+  }
+  
+  .hero-text span::after {
+    color: #03a9f4;
+    z-index: -2;
+    animation: glitchAnim 3s infinite linear alternate-reverse;
+  }
+  
+  @keyframes glitchAnim {
+    0%   { clip: rect(10px, 9999px, 30px, 0); transform: translate(0); }
+    10%  { clip: rect(15px, 9999px, 35px, 0); transform: translate(-2px, -2px); }
+    20%  { clip: rect(20px, 9999px, 40px, 0); transform: translate(2px, 2px);   }
+    30%  { clip: rect(10px, 9999px, 30px, 0); transform: translate(-2px, 2px);  }
+    40%  { clip: rect(15px, 9999px, 35px, 0); transform: translate(2px, -2px);  }
+    50%  { clip: rect(10px, 9999px, 30px, 0); transform: translate(0);          }
+    60%  { clip: rect(15px, 9999px, 35px, 0); transform: translate(-2px, 2px);  }
+    70%  { clip: rect(20px, 9999px, 40px, 0); transform: translate(2px, -2px);  }
+    80%  { clip: rect(10px, 9999px, 30px, 0); transform: translate(-2px, -2px); }
+    90%  { clip: rect(15px, 9999px, 35px, 0); transform: translate(2px, 2px);   }
+    100% { clip: rect(10px, 9999px, 30px, 0); transform: translate(0);          }
+  }
+  
+  /* ----- New Mature Hover Effect ----- */
+  .hero-text span:hover {
+    /* Subtle scale + “lift” */
+    transform: scale(1.03) translateY(-2px);
+    
+    /* Soft radial glow behind text */
+    background: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    background-repeat: no-repeat;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  
+
+  /* --- MISSION LINK STYLES --- */
+  .mission-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight:200;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    letter-spacing: .1em;
+    transition: color 0.3s, transform 0.3s, background 0.3s, box-shadow 0.3s;
+    width: 9rem;
+  }
+  
+  .mission-link:hover {
+    color: #000;
+    background: #fff;
+    transform: translateX(5px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+  
+  
+
+
+
+
+/* ======================
+   ABOUT SECTION STYLES
+====================== *//* ======================
+   COLOR VARIABLES (Optional)
+====================== */
+
+
+
+.about-section {
+  position: relative;          /* Needed for the absolutely-positioned overlay */
+  background: var(--bg-white);
+  padding: 4rem 2rem;
+  color: var(--text-dark);
+  overflow: hidden;           /* Ensures the pseudo-element doesn't overflow */
+}
+
+/* The "frosted glass" overlay */
+.about-section::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Semi-transparent white overlay */
+  background: rgb(255, 255, 255); 
+  
+  /* The actual blur effect (this is what makes it “glass”) */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Optional extras for a more polished glass look */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  z-index: 0; /* Make sure it sits behind your content */
+}
+
+/* This ensures your section's content sits above the glass overlay */
+.about-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Example text styling / layout rules below that you already had... */
+
+/* CONTAINER */
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+/* TOP ROW (Flex Layout) */
+.about-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap);
+  z-index: 10;
+}
+
+/* LEFT COLUMN */
+.about-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 10;
+}
+
+/* Small numbering text */
+.section-number {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* About title */
+.about-title {
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: var(--text-dark);
+}
+
+/* Additional subtext on left column */
+.about-left-subtext {
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #010e0f;
+  max-width: 350px; /* limit width for a nice text wrap */
+}
+
+/* RIGHT COLUMN */
+.about-right {
+  flex: 2; /* slightly larger area for bigger text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering if needed */
+  max-width: 600px; /* optional to limit super-wide text lines */
+  z-index: 20;
+}
+
+.about-subtitle {
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: var(--subtitle-size);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+}
+
+/* BUTTON */
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text-dark);
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid var(--text-dark);
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+}
+
+.view-more-btn:hover {
+  background: var(--highlight-color);
+  color: #fff;
+  border-color: var(--highlight-color);
+}
+
+.arrow-icon {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* ======================
+   RESPONSIVE ADJUSTMENTS
+====================== */
+@media only screen and (max-width: 768px) {
+  .about-top-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about-right {
+    max-width: 100%;
+  }
+}
+
+
+
+/* IMAGES ROW */
+.about-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  z-index: 20;
+}
+
+.about-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 20;
+}
+
+.about-images img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* DESCRIPTION (Right column's paragraph) */
+.description-box {
+  max-width: 650px;
+  margin-left: auto; /* keeps this block on the right side for wider screens */
+  text-align: justify; /* or "center" if you want it centered */
+  margin-top: 30px;
+}
+
+/* Paragraph styling */
+.description-box p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #444;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* ======================
+   RESPONSIVE ADJUSTMENTS
+====================== */
+
+/* Tablets & smaller devices */
+@media screen and (max-width: 992px) {
+  .about-top-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-left {
+    margin-bottom: 1rem;
+  }
+
+  .about-right {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .description-box {
+    margin: 0 auto;
+    text-align: left; /* or "center," as desired for smaller screens */
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Section wrapper with a dark background */
+.s-intro--particles2 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #010e0f;
+  overflow: hidden; /* ensures particles stay visible */
+}
+
+/* Particle overlay for ABOUT section */
+.intro-particles2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35; /* adjust as needed */
+  z-index: 1;
+}
+
+/* Make sure the canvas fills the container */
+.intro-particles2 canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+/****************************************
+  SECTION STYLING
+*****************************************/
+.expertise-section {
+  background: var(--dark-olive);
+  font-family: var(--font-family);
+  color: var(--white);
+  padding: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/****************************************
+  TOP: INFO + CATEGORIES
+*****************************************/
+.expertise-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: var(--container-width);
+  max-height: 1200px;
+  margin: 0 auto 3rem;
+  gap: 2rem;
+}
+
+.expertise-info {
+  flex: 1;
+}
+
+.section-number {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-muted);
+}
+
+.expertise-title {
+  font-size: var(--title-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  letter-spacing: 1px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  color: #000;
+}
+
+.expertise-subtitle {
+  font-size: var(--subtitle-size);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 600px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.expertise-categories-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.expertise-categories {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.expertise-categories li {
+  font-size: var(--category-size);
+  font-weight: 600;
+  margin: 0.5rem 0;
+  transition: color var(--transition-speed);
+}
+
+/* The first item is active (dark/bold). 
+   The subsequent items get lighter as you go down. */
+.expertise-categories li.active {
+  color: #c4c2c2;
+  
+}
+
+.expertise-categories li:nth-of-type(2) {
+  color: #ccc;
+}
+.expertise-categories li:nth-of-type(3) {
+  color: #999;
+}
+.expertise-categories li:nth-of-type(4) {
+  color: #777;
+}
+.expertise-categories li:nth-of-type(5) {
+  color: #555;
+}
+
+.expertise-categories li:hover {
+  color: var(--brand-green);
+}
+
+/****************************************
+  SLIDER
+*****************************************//* SLIDER WRAPPER *//****************************************
+  SINGLE-IMAGE CROSSFADE SLIDER
+*****************************************/
+/****************************************
+  SINGLE-IMAGE CROSSFADE SLIDER
+*****************************************/
+/****************************************
+  RESPONSIVE, SINGLE-IMAGE CROSSFADE SLIDER
+*****************************************/
+
+/* The slider container (responsive) */
+.expertise-slider-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;  /* Or any max width you prefer */
+  aspect-ratio: 16 / 9;  /* Maintains 16:9 ratio on all screen sizes */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* The container for all slides (stacked) */
+.slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Takes the full height from aspect-ratio */
+}
+
+/* Each slide is stacked absolutely; only .active is visible */
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100%;
+  opacity: 0;
+  filter: blur(2px);
+  pointer-events: none;
+  transition: 
+    opacity 0.8s ease,
+    filter 0.8s ease;
+}
+.slide.active {
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+}
+
+/* Each image container occupies the full slide area */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Make the image fill the container while preserving ratio, cropping as needed */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px; /* Optional rounding */
+}
+
+/* Bottom-left caption overlay (tweak location as desired) */
+.image-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  max-width: 80%;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.image-caption h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.image-caption p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/****************************************
+  CONTROLS
+*****************************************/.slider-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.slider-prev, 
+.slider-next {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,240,240,0.9));
+  border: none;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-prev:hover, 
+.slider-next:hover {
+  background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* "See all" link styling */
+.expertise-seeall {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.expertise-seeall a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.expertise-seeall a:hover {
+  background: rgba(0,0,0,0.8);
+  transform: translateX(5px);
+}
+
+
+/****************************************
+  MEDIA QUERIES (Optional Adjustments)
+*****************************************/
+/* If you want to change the aspect ratio or other behaviors on smaller screens, 
+   you can add breakpoints, e.g.: */
+
+@media (max-width: 768px) {
+  /* Maybe use a 4:3 ratio for mobile or let it remain 16:9 */
+  .expertise-slider-wrap {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/****************************************
+  MEDIA QUERIES
+*****************************************/
+@media (max-width: 992px) {
+  .expertise-container {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    
+  }
+      /* Make the slider wrap fit its container width and auto height */
+  .expertise-slider-wrap {
+    max-width: 100%;
+    aspect-ratio: auto; /* or remove if you prefer a fixed ratio on mobile */
+    height: 500px;
+  
+  }
+  .expertise-categories-wrap {
+    margin-top: 2rem;
+  }
+  .slider-track {
+    width: 200%;
+  }
+  .slide {
+    width: 100%;
+    flex-direction: column; /* stack images on smaller screens if desired */
+    
+  }
+
+  
+
+}
+
+
+
+
+
+
+/* WORK SECTION CONTAINER */
+.work-section {
+  width: 100%;
+  padding: 3rem 2rem; /* Adjust as needed */
+}
+
+/* Inner container for content */
+.work-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ========== TOP ROW ========== */
+.work-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* LEFT COLUMN (bigger) */
+.work-left {
+  flex: 3; /* bigger portion of the row */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Right column (smaller) */
+.work-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Section numbering */
+.section-number {
+  font-size: 0.85rem;
+  color: #888; /* or a custom var */
+  margin-bottom: 0.4rem;
+}
+
+/* "Our Work" label */
+.work-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Big, bold heading (left column) */
+.work-subtitle {
+  font-size: var(--subtitle-size);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Categories row (left column) */
+.work-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.work-categories span {
+  background: #f3f3f3;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  cursor: default;
+}
+
+/* Right column text */
+.work-right-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 300px; /* smaller column => limit text width */
+}
+
+/* Explore more button */
+.work-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: auto;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  width: 22rem;
+}
+
+.work-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* Arrow icon next to button text */
+.arrow-icon {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* ========== CARDS ROW ========== */
+.work-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Each card styling */
+.card {
+  background: #fafafa;
+  border-radius: 8px;
+  overflow: hidden; /* if images exceed card boundary */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card content */
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1rem;
+  color: #111;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.card-subtext {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0 1rem 1rem;
+  line-height: 1.4;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* More Details button */
+.card-details-btn {
+  margin: 0 1rem 1rem;
+  align-self: flex-start;
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  padding: auto;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card-details-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media screen and (max-width: 992px) {
+  .work-subtitle {
+    font-size: 2rem;
+  }
+  .work-right-text {
+    max-width: 100%;
+  }
+  .work-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .work-top-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .work-left, .work-right {
+    flex: unset;
+    max-width: 100%;
+  }
+  .work-subtitle {
+    font-size: 1.8rem;
+  }
+  .work-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .work-subtitle {
+    font-size: 1.5rem;
+  }
+  .card img {
+    height: 180px;
+  }
+}
+
+
+
+/* --- Existing WORK SECTION styles (from your previous code) --- */
+/* [Your work-section, work-container, work-top-row, etc. remain the same] */
+
+/* Particle overlay for Work Section */
+.intro-particles3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to pass through */
+  background-color: transparent;
+  opacity: 0.35; /* Adjust opacity as needed */
+  z-index: 0; /* Behind your work container content */
+}
+
+/* Ensure the work container has a higher stacking context */
+.work-container {
+  position: relative;
+  z-index: 10;
+}
+
+
+
+/* =============================
+   PARTNER SECTION (ENHANCED)
+============================= */
+/* 
+   PARTNER SECTION (ENHANCED)
+   The existing code you already have is unchanged except for the top row.
+*/
+
+/* ----------------------------
+   TOP ROW LAYOUT
+-----------------------------*/
+.partner-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* LEFT COLUMN */
+.partner-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* RIGHT COLUMN */
+.partner-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Section number styling - similar to earlier sections */
+.section-number {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+
+/* The smaller sub-title above the main heading (optional) */
+.partner-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: #111;
+  letter-spacing: 1px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Main heading, renamed from partner-heading h2 to partner-subtitle */
+.partner-subtitle {
+  font-size: var(--subtitle-size);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Partner-intro paragraphs remain the same style you had,
+   or override if needed */
+.partner-right .partner-intro {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* 
+   MEDIA QUERIES: 
+   On narrower screens, stack the columns
+*/
+@media screen and (max-width: 992px) {
+  .partner-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Any additional breakpoints remain as you had them
+   for .partner-cards or elsewhere. */
+.partner-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f9f9f9 20%, #f0f0f0 100%);
+  /* a subtle light gradient for a cleaner, modern look */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add an optional floating accent shape or "blob" behind the cards */
+.partner-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(141,198,63,0.2) 0%,
+    rgba(141,198,63,0) 70%
+  );
+  /* brand-green accent softly fading out */
+  z-index: 0;
+}
+
+.partner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 1; /* ensures it sits above the background blob */
+}
+
+/* Heading area */
+.partner-heading {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.partner-heading h2 {
+  font-size: var(--subtitle-size);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.partner-intro {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Cards grid */
+.partner-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card styling */
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay on hover */
+.partner-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(141, 198, 63, 0.05) 0%,
+    rgba(141, 198, 63, 0.15) 50%,
+    rgba(141, 198, 63, 0) 100%
+  );
+  transition: opacity 0.4s ease;
+}
+
+/* Icon styling */
+.card-icon {
+  font-size: 2.2rem;
+  color: #8dc63f; /* brand color for NextGenRobotics */
+  margin-bottom: 1.5rem;
+}
+
+/* Card titles & text */
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.8rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  font-family: 'Monaco', 'Menlo', monospace;
+  margin-bottom: 1rem;
+}
+
+/* Hover animation & effect */
+.partner-card:hover {
+  transform: translateY(-4px) rotateX(3deg) rotateY(1deg);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  background: #fafafa;
+}
+.partner-card:hover::before {
+  opacity: 1;
+  
+}
+
+/* Slight 3D tilt on hover (optional) 
+   If you like this effect, un-comment:
+   .partner-card:hover {
+     transform: translateY(-4px) rotateX(3deg) rotateY(1deg);
+   }
+ */
+
+/* Responsive layout */
+@media screen and (max-width: 992px) {
+  .partner-cards {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+  }
+  .partner-heading h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .partner-cards {
+    grid-template-columns: 1fr; /* single column on mobile */
+  }
+  .partner-heading h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+/* SECTION WRAPPER */
+/* SECTION WRAPPER FOR DRONE SHOWCASE */
+.drone-showcase {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: #fafafa;
+  position: relative;
+}
+
+
+
+/* Main container to hold everything */
+.showcase-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 10; /* Ensure content is above particle overlay */
+}
+
+/* =========================
+   TOP AREA: HEADLINE + STATS
+========================= */
+.showcase-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* LEFT: STATS & HEADLINE */
+.showcase-left {
+  flex: 1.5; /* slightly bigger portion */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.stats-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.stats-desc {
+  font-size: 1.2rem;
+  color: #555;
+  letter-spacing: 0.5px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.showcase-headline {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* RIGHT: SMALL TEXT BLOCK */
+.showcase-right {
+  flex: 1; /* smaller portion */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.works-label {
+  font-size: 1.1rem;
+  color: #999;
+}
+.works-desc {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* =========================
+   IMAGES SECTION
+========================= */
+.showcase-images {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* large image + small image */
+  gap: 2rem;
+}
+
+/* Image containers with text label over top corner */
+/* Container styles */
+.large-image, .small-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Fallback image fills the container */
+.fallback-image {
+  width: 100%;
+  display: block;
+}
+
+/* Video overlay initially hidden, then fades in */
+.overlay-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 2;
+}
+
+.overlay-video.loaded {
+  opacity: 1;
+}
+.image-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  z-index: 2;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.large-image img,
+.small-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Hover zoom effect on images */
+.large-image:hover img,
+.small-image:hover img {
+  transform: scale(1.03);
+}
+
+/* =========================
+   BOTTOM TEXT AREA
+========================= */
+.showcase-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.bottom-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #111;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.bottom-desc {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 600px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+/* Ensure the small image container uses a column layout */
+.small-image {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Style for the text container below the image */
+.small-image-text {
+  padding: 1rem 0;
+  text-align: center;  /* Adjust if you want left/right alignment */
+}
+
+/* Adjust the bottom description text */
+.bottom-desc {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* More Works button already styled; you can add margin adjustments if needed */
+.more-works-btn {
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: auto;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  width: fit-content;
+  margin: 0 auto;  /* center button within text container */
+}
+
+.more-works-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+/* =========================
+   DRONE ADVANTAGES SECTION
+========================= */
+.drone-advantages {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.advantages-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #111;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.advantages-list li {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #444;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.advantages-list strong {
+  color: #111;
+}
+.advantages-summary {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+  line-height: 1.5;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+/* =========================
+   NEW: PARTICLE OVERLAY FOR DRONE SHOWCASE
+========================= */
+.particles-work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35; /* adjust as desired */
+  z-index: 1; /* behind .showcase-container */
+}
+
+.particles-work-overlay canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media screen and (max-width: 992px) {
+  .showcase-top {
+    flex-direction: column;
+  }
+  .showcase-images {
+    grid-template-columns: 1fr;
+  }
+  .large-image,
+  .small-image {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .showcase-headline {
+    font-size: 1.8rem;
+  }
+  .bottom-title {
+    font-size: 1.2rem;
+  }
+  .drone-advantages {
+    padding: 1rem;
+  }
+  .advantages-heading {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* 
+   1) Top-row split: title on left, subtitle + text on right.
+   2) Reuse your existing background, container, .partners-grid, .partner-card styles, etc.
+*/
+
+/* The top row container for left & right columns */
+.partners-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem; /* gives space before the grid */
+}
+
+/* LEFT COLUMN */
+.partners-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* RIGHT COLUMN */
+.partners-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Section number styling (like other sections) */
+.section-number {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+
+/* The small “Our Partnerships” label on the left column */
+.partners-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 1rem;
+  color: #111;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Main heading on the right column */
+.partners-subtitle {
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Subtext / subtitle on the right column */
+.partners-intro {
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-bottom: 0;
+}
+
+/* Responsive: stack the two columns at smaller breakpoints */
+@media screen and (max-width: 992px) {
+  .partners-top-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .partners-subtitle {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .partners-subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .partners-intro {
+    font-size: 1rem;
+  }
+}
+
+
+/* Partners Section Wrapper */
+.partners-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: #f7f7f7;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main container for content */
+.partners-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+
+/* Grid Layout for Partner Cards */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Partner Card */
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Partner Logo */
+.partner-card img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.partner-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Partner Name */
+.partner-name {
+   font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 992px) {
+  .partners-heading h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .partners-heading h2 {
+    font-size: 1.8rem;
+  }
+  .partners-heading p {
+    font-size: 1rem;
+  }
+}
+
+
+/********************************************
+  FAQ SECTION (With Particles & Accordion)
+********************************************/
+
+.faq-section {
+  position: relative;
+  padding: 4rem 2rem;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+/* Particles container fills the section */
+.faq-particles {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Container with z-index so it stays above the particles */
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 3rem;
+}
+
+/* LEFT COLUMN */
+.faq-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.section-number {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+
+}
+.faq-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.faq-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 2rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+.faq-intro {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+/* RIGHT COLUMN */
+.faq-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* FAQ Items */
+.faq-item {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+/* The question as a button */
+.faq-question {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Monaco', 'Menlo', monospace;
+  padding: 0;
+}
+
+/* The plus/minus icon or custom arrow */
+.faq-toggle-icon {
+  font-size: 1.5rem;
+  color: #8dc63f; /* brand green */
+  transition: transform 0.3s ease;
+}
+
+/* The hidden answer content */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.faq-answer p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Active (expanded) styles */
+.faq-item.active .faq-answer {
+  max-height: 200px; /* or more, to accommodate your content */
+  opacity: 1;
+  transform: translateY(0);
+}
+.faq-item.active .faq-toggle-icon {
+  transform: rotate(45deg);
+}
+
+/********************************************
+  RESPONSIVE
+********************************************/
+@media (max-width: 992px) {
+  .faq-container {
+    flex-direction: column;
+  }
+  .faq-left, .faq-right {
+    flex: 1 1 100%;
+  }
+  .faq-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-title {
+    font-size: 1.8rem;
+  }
+  .faq-intro {
+    font-size: 1rem;
+  }
+}
+/****************************************
+  FOOTER SECTION (TWO-COLUMN MOD)
+*****************************************/
+.footer-section {
+  position: relative;
+  padding: 4rem 2rem;
+  color: #f2f2f2;
+  overflow: hidden;
+  /* Dark-to-green gradient background */
+  background: linear-gradient(
+    135deg,
+    #1c1e1b 10%,
+    #3a4037 50%,
+    #8dc63f 100%
+  );
+}
+
+/* "Glaze" overlay using a pseudo-element */
+.footer-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  
+  /* Slight white overlay with blur for a glazed effect */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative; /* so it can stack above the glaze */
+  z-index: 1;         /* ensures it stays on top of the overlay */
+}
+
+/***********************
+   TOP ROW
+***********************/
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* LEFT Column: Section #, label, big CTA */
+.footer-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.section-number {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-bottom: 0.2rem;
+}
+
+.footer-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ccc;
+  letter-spacing: 1px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  margin-bottom: 1rem;
+}
+
+/* Big CTA text */
+.footer-cta {
+  font-size: 5rem; /* Increase size */
+  line-height: 1.1;
+  font-weight: 300; /* Light base weight */
+  text-transform: none;
+  margin-bottom: 1.5rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+  color: #fff;
+}
+
+.footer-cta strong {
+  font-weight: 700;
+  color: #8dc63f; /* brand green highlight */
+}
+
+/* CTA button */
+.footer-talk-btn {
+  background: #fff;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  width: 17rem;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.footer-talk-btn:hover {
+  background: #8dc63f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+}
+
+/* RIGHT Column: Contact Info, bigger text */
+.footer-right {
+  flex: 1;
+  text-align: right;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.footer-address {
+  font-style: normal; /* override italic from <address> */
+  color: #fff;
+  line-height: 1.8; /* bigger for a bolder look */
+  font-size: 1.2rem; /* increase size slightly */
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.footer-address a {
+  color: #8dc63f;
+  text-decoration: none;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.footer-address a:hover {
+  text-decoration: underline;
+}
+
+/***********************
+   HORIZONTAL DIVIDER
+***********************/
+.footer-divider {
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  margin: 1rem 0;
+}
+
+/***********************
+   BOTTOM ROW
+***********************/
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* so it can stack on small screens */
+  gap: 1rem;
+}
+
+/* Footer Logo */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* Footer Nav */
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.footer-nav li {
+  margin: 0;
+}
+
+.footer-nav a {
+  color: #fff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.footer-nav a:hover {
+  color: #8dc63f;
+}
+
+/* Copyright */
+.footer-copy {
+  font-size: 0.9rem;
+  color: #f1eeee;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/***********************
+   RESPONSIVE
+***********************/
+@media (max-width: 992px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer-left,
+  .footer-right {
+    text-align: left;
+  }
+  .footer-cta {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-cta {
+    font-size: 1.8rem;
+  }
+  .footer-talk-btn {
+    font-size: 1rem;
+  }
+  .footer-address {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>NextGenRobotics</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="monaco/Monaco.ttf">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/styles.css">
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script defer src="js/fontawesome/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body id="top">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- site header
+    ================================================== -->
+    <header class="s-header">
+      <div class="header-top">
+        <!-- Header Email (left) -->
+        <div class="header-email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 12l11 3.1 7-8.1-8.156 5.672-4.312-1.202 15.362-7.68-3.974 14.57-3.75-3.339-2.17 2.925v-.769l-2-.56v7.383l4.473-6.031 4.527 4.031 6-22z"/>
+          </svg>
+          <a href="mailto:hello@NextGenRobotics.com">hello@NextGenRobotics.com</a>
+        </div>
+    
+        <!-- Navigation (middle) -->
+      <nav id="mainNav">
+  <!-- Primary Nav Menu -->
+  <div class="nav-menu" id="navMenu">
+    <ul>
+      <!-- Home -->
+      <li><a href="#top">Home</a></li>
+      
+      <!-- About (with sublinks) -->
+      <li class="has-submenu">
+        <a href="#about">About</a>
+        <ul class="submenu">
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#mission">Mission &amp; Vision</a></li>
+          <li><a href="#history">Our History</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </li>
+      
+      <!-- Services (with sublinks) -->
+      <li class="has-submenu">
+        <a href="#services">Services</a>
+        <ul class="submenu">
+          <li><a href="#drone-solutions">Drone Solutions</a></li>
+          <li><a href="#ai-integration">AI Integration</a></li>
+          <li><a href="#security-systems">Security Systems</a></li>
+          <li><a href="#flight-testing">Flight Testing</a></li>
+        </ul>
+      </li>
+      
+      <!-- Projects (with sublinks) -->
+      <li class="has-submenu">
+        <a href="#projects">Projects</a>
+        <ul class="submenu">
+          <li><a href="#case-studies">Case Studies</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </li>
+      
+      <!-- News -->
+      <li><a href="#news">News</a></li>
+      
+      <!-- Contact (direct link to footer or dedicated contact page) -->
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  
+  <!-- Hamburger for Mobile -->
+  <div class="hamburger" id="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+    
+        <!-- Header Logo (right) -->
+        <div class="header-logo">
+          <a class="site-logo" href="index.html">
+            <img src="images/nextgen_logo.svg" alt="icon">
+          </a>
+        </div>
+      </div>
+    </header><!-- end s-header -->
+
+    <!-- intro
+    ================================================== -->
+
+
+    <section id="intro" class="s-intro s-intro--particles">
+        <!-- Background Video with fallback poster image -->
+        <video autoplay muted loop playsinline id="bgVideo" poster="images/fallback.jpg">
+          <source src="videos/lagosview2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        
+        <!-- Gradient overlay on video -->
+        <div class="video-gradient"></div>
+      
+        <!-- Particle overlay (stays on top of video) -->
+        <div id="particles-js" class="intro-particles"></div>
+      
+        <!-- Optional grid overlay for a techy vibe -->
+        <div class="grid-overlay">
+          <div></div>
+        </div>
+      
+        <!-- Hero Content -->
+        <div class="row intro-content">
+          <div class="column">
+            <div class="intro-content__text">
+              <h3>Welcome to NextGenRobotics</h3>
+             
+            
+                <h1 class="hero-text">
+                  <span data-text="INNOVATE">INNOVATE</span>
+                  <span data-text="SECURE">SECURE</span>
+                  <span data-text="TRANSFORM">TRANSFORM</span>
+                  <a href="#mission" class="mission-link">Explore </a>
+                </h1>
+             
+
+         
+            </div>
+      
+
+            <div class="intro-content__bottom">
+              <div class="intro-content__counter-wrap">
+                <h4>Launching In</h4>
+                <div class="counter">
+                  <div class="counter__time days">
+                    50<span> D</span>
+                  </div>
+                  <div class="counter__time hours">
+                    09<span >H</span>
+                  </div>
+                  <div class="counter__time minutes">
+                    54<span> M</span>
+                  </div>
+                  <div class="counter__time seconds">
+                    57<span> S</span>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="intro-content__notify">
+                <button type="button" class="btn--stroke btn--small modal-trigger">
+                  Notify Me
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M24 12l-9-9v7h-15v4h15v7z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal">
+          <div class="modal__inner">
+
+              <span class="modal__close"></span>
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+
+              <h3>Sign Up</h3>
+              <p>
+              Be the first to know about the latest updates and
+              get exclusive offer on our grand opening.
+              </p>
+
+              <form id="mc-form" class="group mc-form" novalidate="true">
+                  <input type="email" value="" name="EMAIL" class="email h-full-width h-text-center h-add-half-bottom" id="mc-email" placeholder="Email Address" required="">
+                  <input type="submit" name="subscribe" value="Subscribe" class="btn--small h-full-width">
+                  <label for="mc-email" class="subscribe-message"></label>
+              </form>
+
+          </div> <!-- end modal inner -->
+      </div> <!-- end modal -->
+      
+
+
+        <!-- Social Links -->
+        <ul class="intro-social">
+          <li><a href="#0"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="#0"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="#0"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
+        </ul>
+      
+
+        <!-- Scroll Indicator -->
+        <div class="intro-scroll">
+          <a href="#info" class="scroll-link smoothscroll">
+            Scroll For More
+          </a>
+        </div>
+
+      </section>
+
+
+      <section id="info" class="s-info">
+        <div class="vert-line"></div>
+
+
+        <div id="particles-js-about" class="intro-particles2"></div>   <!-- ABOUT SECTION -->
+        <section class="about-section s-intro--particles2" id="about">
+          <!-- Particle Overlay Container -->
+          
+        
+      
+            <!-- Top Row -->
+      
+              <div class="about-container">
+                
+                <!-- Top Row: Left & Right Columns -->
+                <div class="about-top-row">
+                  
+                  <!-- LEFT COLUMN -->
+                  <div class="about-left" data-aos="fade-right">
+                    <!-- Small numbering -->
+                    <span class="section-number">(01)</span>
+                    <!-- Title -->
+                    <p class="about-title">About Us</p>
+                    
+                    <!-- Subtext on the left column -->
+                    <p class="about-left-subtext">
+                      We ardently strive to encapsulate life's most precious moments,
+                      weaving a tapestry of artistry and a hint of enchanting magic 
+                      with the timeless essence of the human experience.
+                    </p>
+                  </div>
+                  
+                  <!-- RIGHT COLUMN -->
+                  <div class="about-right" data-aos="fade-right">
+                    <!-- Bold, large heading -->
+                    <h2 class="about-subtitle">
+                      NextGenRobotics is driven by a deep passion 
+                      for delivering cutting-edge drone solutions 
+                      powered by AI, ensuring future-ready services 
+                      across industries.
+                    </h2>
+                    
+                    <!-- Button (with arrow icon) -->
+                    <button class="view-more-btn">
+                      LEARN MORE
+                      <!-- Example arrow icon; swap out for your preferred SVG or icon font -->
+                      <span class="arrow-icon">&#8594;</span>
+                    </button>
+                  </div>
+                  
+                </div><!-- /.about-top-row -->
+                
+          
+        
+            <!-- Row of three images -->
+            <div class="about-images" data-aos="fade-up">
+              <img src="images/drone4.jpg" alt="Drone 4" loading="lazy"/>
+              <img src="images/camera1.jpg" alt="Camera 1" loading="lazy"/>
+              <img src="images/drone5.jpg" alt="Drone 5" loading="lazy" />
+            </div>
+        
+            <!-- Right-aligned description paragraph -->
+            <div class="about-right description-box" data-aos="fade-up">
+              <p>
+                We are in the business of advanced robotics because we love the synergy
+                between AI and real-world challenges. At NextGenRobotics, we take pride
+                in offering a wide range of drone flight testing, CCTV surveillance,
+                and autonomous robotics solutions across multiple industries. Our
+                dedicated team of AI experts and engineers are well-versed in various
+                drone applications, ensuring you get the most from these cutting-edge
+                technologies. Think of us as your one-stop destination for all your
+                drone and robotics needs—powered by the latest breakthroughs in
+                artificial intelligence.
+              </p>
+            </div>
+          </div>
+          <div class="vert-line3"></div>
+        </section>
+</section>
+
+
+
+<section id="info" class="s-info">
+<div class="vert-line2"></div>
+
+<section class="expertise-section" id="expertise">
+  
+  <div class="expertise-container">
+    
+    <!-- LEFT AREA: Number, Title, Big Subtitle -->
+    <div class="expertise-info" data-aos="fade-right">
+      <span class="section-number">(02)</span>
+      <p class="expertise-title">Our Expertise</p>
+      
+      <h2 class="expertise-subtitle">
+        When moments captured,
+        every dream is crafted into
+        a breathtaking reality
+      </h2>
+    </div>
+    
+    <!-- RIGHT AREA: Categories -->
+    <div class="expertise-categories-wrap" data-aos="fade-right">
+      <ul class="expertise-categories">
+        <li class="active">Landscape</li>
+        <li>Wildlife</li>
+        <li>Architectural</li>
+        <li>Travel</li>
+        <li>Portrait</li>
+      </ul>
+    </div>
+    
+  </div><!-- /expertise-container (top) -->
+  
+  <!-- SLIDER ROW -->
+  <div class="expertise-slider-wrap" data-aos="fade-up">
+    <!-- Slides container -->
+    <div class="slider-track">
+      
+      <!-- SLIDE #1 -->
+      <div class="slide active">
+        <div class="image-container">
+          <img src="images/drone5.jpg" alt="Mont Blanc Drone" loading="lazy" />
+          <div class="image-caption">
+            <h3>Chasing Clouds at Mont Blanc's Pinnacle</h3>
+            <p>Mont Blanc, France</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- SLIDE #2 -->
+      <div class="slide">
+        <div class="image-container">
+          <img src="images/drone4.jpg" alt="Another Drone Shot" loading="lazy" />
+          <div class="image-caption">
+            <h3>High-Altitude Aerial Insights</h3>
+            <p>Swiss Alps, Switzerland</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- SLIDE #3 -->
+      <div class="slide">
+        <div class="image-container">
+          <img src="images/camera1.jpg" alt="Urban Drone" loading="lazy"/>
+          <div class="image-caption">
+            <h3>Autonomous Inspection</h3>
+            <p>Industrial Complex</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- SLIDE #4 -->
+      <div class="slide">
+        <div class="image-container">
+          <img src="images/camera2.jpg" alt="Warehouse Drone" loading="lazy" />
+          <div class="image-caption">
+            <h3>Warehouse Surveillance</h3>
+            <p>Commercial Hub</p>
+          </div>
+        </div>
+      </div>
+      
+    </div><!-- /.slider-track -->
+  
+    <!-- New SLIDER CONTROLS with centered layout -->
+    <div class="slider-controls">
+      <button class="slider-prev">&#10094;</button>
+      <button class="slider-next">&#10095;</button>
+    </div>
+    
+    <!-- "See all" link positioned on the right -->
+    <div class="expertise-seeall">
+      <a href="#all-expertise">See all &rarr;</a>
+    </div>
+  
+
+</section>
+
+</section>
+
+
+
+<section id="info" class="s-info">
+  <div class="vert-line"></div>
+
+  <!-- WORK SECTION -->
+  <section class="work-section" id="our-work">
+    <div class="work-container">
+      <!-- Top row: Left (bigger) and Right (smaller) -->
+      <div class="work-top-row">
+        <!-- LEFT COLUMN -->
+        <div class="work-left" data-aos="fade-right">
+          <span class="section-number">(03)</span>
+          <p class="work-title">Our Work</p>
+          <h2 class="work-subtitle">
+            Explore the artistry and precision behind our<br>
+            portfolio of advanced drone solutions<br>
+            at NextGenRobotics
+          </h2>
+          <div class="work-categories">
+            <span>Surveillance</span>
+            <span>AI-Driven</span>
+            <span>Inspection</span>
+            <span>#2025</span>
+          </div>
+        </div>
+        
+        <!-- RIGHT COLUMN -->
+        <div class="work-right" data-aos="fade-right">
+          <p class="work-right-text">
+            Embark on a technological journey through our pioneering drone solutions.
+            Each innovation in our portfolio reflects our dedication to harnessing AI
+            for precision, safety, and transformative impact across industries.
+          </p>
+          <button class="work-btn">
+            Explore More <span class="arrow-icon">&#8594;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Row of three card items -->
+      <div class="work-cards" data-aos="fade-up">
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="images/drone1.jpg" alt="Drone in forest" loading="lazy"/>
+          <h3 class="card-title">Majestic Canopy Survey</h3>
+          <p class="card-subtext">
+            Harnessing aerial AI to monitor forest health and preserve natural habitats.
+          </p>
+          <button class="card-details-btn">More Details</button>
+        </div>
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="images/drone8.jpg" alt="Drone over city" loading="lazy" />
+          <h3 class="card-title">Urban Infrastructure Inspection</h3>
+          <p class="card-subtext">
+            High-precision drones ensuring safety and longevity for city skylines.
+          </p>
+          <button class="card-details-btn">More Details</button>
+        </div>
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="images/drone3.jpg" alt="Drone over sea" loading="lazy"/>
+          <h3 class="card-title">Coastal Security Patrol</h3>
+          <p class="card-subtext">
+            Real-time surveillance powered by AI to protect marine life and coastal areas.
+          </p>
+          <button class="card-details-btn">More Details</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Particle Overlay for Our Work Section -->
+    <div id="particles-js-work" class="intro-particles3"></div>
+  </section>
+</section>       <!-- AOS JS -->
+
+
+
+<section class="partner-section" id="why-partner">
+  <div class="partner-container">
+    
+    <!-- TOP ROW: Left & Right -->
+    <div class="partner-top-row" data-aos="fade-up">
+      
+      <!-- LEFT COLUMN -->
+      <div class="partner-left">
+        <span class="section-number">(04)</span>
+        
+        <!-- Example title above the main heading -->
+        <p class="partner-title">Our Partner Advantages</p>
+        
+        <!-- Main heading -->
+        <h2 class="partner-subtitle">Why We’re Your Best Partner?</h2>
+      </div>
+      
+      <!-- RIGHT COLUMN -->
+      <div class="partner-right">
+        <p class="partner-intro">
+          At NextGenRobotics, we bring cutting-edge drone and AI expertise to every
+          project, ensuring future-ready solutions that propel your organization forward.
+        </p>
+        
+        <p class="partner-intro">
+          <strong>Dual Technology Advantage</strong> – Combining aerial and static surveillance for maximum coverage<br>
+          <strong>AI-Powered Automation</strong> – Real-time data analysis and predictive insights<br>
+          <strong>Enhanced Security &amp; Efficiency</strong> – Reduce risks and optimize performance<br>
+          <strong>Eco-Friendly &amp; Cost-Effective</strong> – Sustainable and scalable solutions
+        </p>
+        
+        <p class="partner-intro">
+          With drones in the air and AI-powered cameras on the ground, we provide 360° intelligence to empower businesses
+          and industries. The future of smart security and operations starts here.
+        </p>
+      </div>
+      
+    </div><!-- /.partner-top-row -->
+    
+    <!-- CARDS GRID (unchanged, just placed below the top row) -->
+    <div class="partner-cards" data-aos="fade-up">
+      <!-- Card 1 -->
+      <div class="partner-card">
+        <div class="card-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3 class="card-title">Specialized Expertise</h3>
+        <p class="card-text">
+          Our team’s deep knowledge of drone technology and AI ensures every project
+          is tailored for maximum impact.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="partner-card">
+        <div class="card-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="card-title">Proven Track Record</h3>
+        <p class="card-text">
+          From small-scale prototypes to large enterprise deployments, we’ve
+          successfully delivered transformative results.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="partner-card">
+        <div class="card-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3 class="card-title">Unlimited Customization</h3>
+        <p class="card-text">
+          Our flexible, modular approach means your drone solutions always fit
+          your unique operational needs.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="partner-card">
+        <div class="card-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3 class="card-title">Collaborative Approach</h3>
+        <p class="card-text">
+          We work closely with your team to ensure seamless integration and
+          transparent communication every step of the way.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="partner-card">
+        <div class="card-icon">
+          <i class="fas fa-tags"></i>
+        </div>
+        <h3 class="card-title">Cost-Effective Solutions</h3>
+        <p class="card-text">
+          By leveraging AI efficiencies, we deliver top-tier drone services that
+          fit comfortably within your budget.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="partner-card">
+        <div class="card-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3 class="card-title">Innovative Thinking</h3>
+        <p class="card-text">
+          Our forward-looking mindset ensures that your solutions remain relevant
+          and scalable in the evolving tech landscape.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="drone-showcase" id="drone-showcase">
+
+  <div id="particles-js-showcase" class="particles-work-overlay"></div>
+  <div class="showcase-container">
+    <!-- TOP AREA -->
+    <div class="showcase-top">
+      <!-- LEFT: STATS & MAIN HEADLINE -->
+      <div class="showcase-left" data-aos="fade-right">
+        <div class="stats">
+          <span class="stats-number">140K+</span>
+          <p class="stats-desc">Projects Done</p>
+        </div>
+        <h2 class="showcase-headline">
+          Design from our team always<br>
+          have philosophy that grounded<br>
+          in attention to detail
+        </h2>
+      </div>
+
+      <!-- RIGHT: SMALL TEXT BLOCK -->
+      <div class="showcase-right" data-aos="fade-right">
+        <p class="works-label">/Works (3)</p>
+        <p class="works-desc">
+          Every pixel matters, and we ensure your visual elements are
+          not just eye-catching but also flawlessly executed.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGES SECTION -->
+    <div class="showcase-images">
+      <!-- LARGE IMAGE (left) -->
+      <div class="large-image" data-aos="fade-up">
+        <div class="image-label">MEMORIA/2025</div>
+        <!-- Fallback image -->
+        <img src="images/drone1.jpg" alt="Large Drone Showcase" class="fallback-image" />
+        <!-- Video overlay that fades in when loaded -->
+        <video class="overlay-video" autoplay muted loop playsinline>
+          <source src="videos/crowdtracking2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    
+      <!-- SMALLER IMAGE (right) with bottom text -->
+      <div class="small-image" data-aos="fade-up">
+        <div class="image-label">MEMORIA/2025</div>
+        <!-- Fallback image -->
+        <img src="images/camera2.jpg" alt="Small Drone Showcase" class="fallback-image" />
+        <!-- Video overlay that fades in when loaded -->
+        <video class="overlay-video" autoplay muted loop playsinline>
+          <source src="videos/crowdtracking.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="small-image-text">
+          <p class="bottom-desc">
+            Our team consists of licensed drone engineers, AI specialists, and integrated devs who deliver your brand’s identity with unmatched innovation and synergy.
+          </p>
+          <button class="more-works-btn">More Works</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM TEXT AREA -->
+    <div class="showcase-bottom" data-aos="fade-up">
+      <h3 class="bottom-title">
+        Midnight Irene Replay<br>
+        (YouTube Ads Video - 2025)
+      </h3>
+    </div>
+
+    <!-- NEW: Drone Surveillance Advantages -->
+    <div class="drone-advantages" data-aos="fade-up">
+      <h4 class="advantages-heading">AI-Driven Drone Surveillance</h4>
+      <ul class="advantages-list">
+        <li>
+          <strong>Dual Technology Advantage</strong> – Combining aerial and static surveillance for maximum coverage.
+        </li>
+        <li>
+          <strong>AI-Powered Automation</strong> – Real-time data analysis and predictive insights.
+        </li>
+        <li>
+          <strong>Enhanced Security &amp; Efficiency</strong> – Reduce risks and optimize performance.
+        </li>
+        <li>
+          <strong>Eco-Friendly &amp; Cost-Effective</strong> – Sustainable and scalable solutions.
+        </li>
+      </ul>
+      <p class="advantages-summary">
+        With drones in the air and AI-powered cameras on the ground, we provide 360&deg; intelligence to empower businesses and industries. The future of smart security and operations starts here.
+      </p>
+    </div>
+  </div>
+  
+ 
+</section>
+
+
+<section id="partners" class="partners-section" data-aos="fade-up">
+  <div class="partners-container">
+    
+    <!-- TOP ROW: Left (section #, small title) & Right (main heading, subtitle) -->
+    <div class="partners-top-row">
+      
+      <!-- LEFT COLUMN -->
+      <div class="partners-left" data-aos="fade-right">
+        <span class="section-number">(04)</span>
+        <p class="partners-title">Our Partnerships</p>
+      </div>
+      
+      <!-- RIGHT COLUMN -->
+      <div class="partners-right" data-aos="fade-right">
+        <h2 class="partners-subtitle">Our Trusted Partners</h2>
+        <p class="partners-intro">
+          Collaborating with industry leaders to drive the future of drone technology.
+        </p>
+      </div>
+      
+    </div><!-- /.partners-top-row -->
+    
+    <!-- PARTNERS GRID -->
+    <div class="partners-grid">
+      <!-- Example Partner Card 1 -->
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://logos-world.net/wp-content/uploads/2023/05/TotalEnergies-Logo.png" alt="Partner 1 Logo">
+        <p class="partner-name">Total Energies</p>
+      </div>
+      <!-- Example Partner Card 2 -->
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://cdn.freebiesupply.com/images/large/2x/google-logo-transparent.png" alt="Partner 2 Logo">
+        <p class="partner-name">Google</p>
+      </div>
+      <!-- Example Partner Card 3 -->
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/027/127/493/small_2x/microsoft-logo-microsoft-icon-transparent-free-png.png" alt="Partner 3 Logo">
+        <p class="partner-name">Microsoft</p>
+      </div>
+      <!-- Example Partner Card 4 -->
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="400">
+        <img src="images/partner4.svg" alt="Partner 4 Logo">
+        <p class="partner-name">Partner Four</p>
+      </div>
+      <!-- Example Partner Card 5 -->
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="500">
+        <img src="images/partner5.svg" alt="Partner 5 Logo">
+        <p class="partner-name">Partner Five</p>
+      </div>
+      <!-- Example Partner Card 6 -->
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="600">
+        <img src="images/partner6.svg" alt="Partner 6 Logo">
+        <p class="partner-name">Partner Six</p>
+      </div>
+    </div><!-- /.partners-grid -->
+    
+  </div><!-- /.partners-container -->
+</section>
+
+
+<!-- Include Particles.js (CDN or local) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
+
+<section class="faq-section" id="faq">
+  <!-- Particles container -->
+  <div id="particles-faq" class="faq-particles"></div>
+  
+  <div class="faq-container">
+    <!-- LEFT COLUMN: Title + Intro -->
+    <div class="faq-left" data-aos="fade-right">
+      <span class="section-number">(05)</span>
+      <p class="faq-subtitle">Your Questions</p>
+      <h2 class="faq-title">FAQ</h2>
+      <p class="faq-intro">
+        At NextGenRobotics, we understand you may have questions about our AI-driven drone services.
+        Below are some of the most common inquiries. <br><br>
+        Don’t see your question here? <strong>Contact us</strong> and we’ll be happy to help!
+      </p>
+    </div>
+    
+    <!-- RIGHT COLUMN: Accordion FAQ -->
+    <div class="faq-right" data-aos="fade-left">
+      
+      <!-- FAQ Item #1 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is NextGenRobotics suitable for large-scale industrial solutions?</span>
+          <i class="faq-toggle-icon">&plus;</i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Absolutely. Our scalable, AI-powered drone systems are designed to handle both 
+            small-scale operations and large industrial deployments, ensuring maximum impact 
+            and efficiency in a variety of settings.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item #2 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How quickly can I deploy drone services at my facility?</span>
+          <i class="faq-toggle-icon">&plus;</i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Deployment time varies by project size and complexity. Most clients can expect 
+            to see initial operations within a few weeks, thanks to our streamlined 
+            integration process and dedicated support.
+          </p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item #3 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Do you offer 24/7 autonomous surveillance?</span>
+          <i class="faq-toggle-icon">&plus;</i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes. Our drones and ground-based AI sensors can run continuously, offering 
+            real-time monitoring for critical operations. We provide custom scheduling 
+            to minimize downtime and ensure consistent coverage.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item #4 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What kind of data analytics do you provide?</span>
+          <i class="faq-toggle-icon">&plus;</i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            NextGenRobotics leverages machine learning algorithms to deliver detailed 
+            insights, predictive maintenance alerts, and performance analytics. Our 
+            real-time dashboards help you make data-driven decisions.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item #5 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is there an option for custom drone or sensor setups?</span>
+          <i class="faq-toggle-icon">&plus;</i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Absolutely! We tailor drone payloads, AI workflows, and sensor configurations 
+            to match each client’s unique requirements. Talk to us about your specialized 
+            use case today.
+          </p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item #6 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How do I get started with NextGenRobotics?</span>
+          <i class="faq-toggle-icon">&plus;</i>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Simply request a consultation. We’ll walk you through a needs assessment, 
+            propose a custom solution, and outline the integration timeline to get 
+            you up and running swiftly.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /.faq-right -->
+  </div><!-- /.faq-container -->
+</section>
+
+   <!-- FOOTER SECTION -->
+<footer class="footer-section" id="contact">
+  <div class="footer-container">
+    
+    <!-- TOP ROW: Left & Right -->
+    <div class="footer-top">
+      
+      <!-- LEFT Column: Section #, label, big CTA -->
+      <div class="footer-left" data-aos="fade-right">
+        <span class="section-number">(05)</span>
+        <p class="footer-label">Contact Us</p>
+        
+        <!-- Big CTA text -->
+        <h2 class="footer-cta">
+          Let’s <strong>discuss</strong> your<br> 
+          vision <strong>with us</strong>
+        </h2>
+        
+        <!-- CTA button -->
+        <button class="footer-talk-btn">
+          Let’s Talk
+          <span class="arrow-icon">&#10132;</span>
+        </button>
+      </div>
+      
+      <!-- RIGHT Column: Contact Info -->
+      <div class="footer-right" >
+        <address class="footer-address">
+          455 Robotics Avenue,<br>
+          Cityville, MA 55789,<br>
+          United States<br><br>
+          +1 (555) 123-4567<br>
+          <a href="mailto:hello@nextgenrobotics.ai">hello@nextgenrobotics.ai</a>
+        </address>
+      </div>
+      
+    </div><!-- /.footer-top -->
+    
+    <hr class="footer-divider">
+    
+    <!-- BOTTOM ROW: Logo, Nav, Copyright -->
+    <div class="footer-bottom">
+      
+      <!-- Footer Logo or Company Name -->
+      <div class="footer-logo" >
+        <img src="images/nextgenrobotics-logo.svg" alt="NextGenRobotics Logo">
+        <!-- Alternatively: <h4>NextGenRobotics</h4> -->
+      </div>
+      
+      <!-- Navigation Links -->
+      <ul class="footer-nav" >
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#policy">Terms &amp; Conditions</a></li>
+      </ul>
+      
+      <!-- Copyright -->
+      <div class="footer-copy" data-aos="fade-left">
+        &copy; <span id="year"></span> NextGenRobotics. All Rights Reserved.
+      </div>
+      
+    </div><!-- /.footer-bottom -->
+    
+  </div><!-- /.footer-container -->
+</footer>
+
+
+
+
+<!-- Particles.js CDN (example) -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/particle-settings.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/custom.js"></script>
+
+
+
+    <script>
+      AOS.init();
+    </script>
+
+
+</body>
+</html>
