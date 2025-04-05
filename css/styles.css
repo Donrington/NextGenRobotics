@@ -191,6 +191,9 @@ body {
     transform: translateX(5px) scale(1.05);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
   }
+
+
+
   
   
 
@@ -355,6 +358,10 @@ body {
   .about-right {
     max-width: 100%;
   }
+
+  .custom-cursor {
+    display:none;
+  }
 }
 
 
@@ -429,6 +436,9 @@ body {
   .about-images {
     grid-template-columns: 1fr;
   }
+
+
+
 }
 
 
@@ -463,7 +473,6 @@ body {
 
 
 
-
 /****************************************
   SECTION STYLING
 *****************************************/
@@ -485,7 +494,6 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   max-width: var(--container-width);
-  max-height: 1200px;
   margin: 0 auto 3rem;
   gap: 2rem;
 }
@@ -508,7 +516,7 @@ body {
   margin: 0 0 1rem;
   letter-spacing: 1px;
   font-family: 'Monaco', 'Menlo', monospace;
-  color: #000;
+  color: #000; /* If the background is dark, you might want #fff or a lighter color instead */
 }
 
 .expertise-subtitle {
@@ -521,9 +529,7 @@ body {
 
 .expertise-categories-wrap {
   flex: 0 0 auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  
   font-family: 'Monaco', 'Menlo', monospace;
 }
 
@@ -545,9 +551,7 @@ body {
    The subsequent items get lighter as you go down. */
 .expertise-categories li.active {
   color: #c4c2c2;
-  
 }
-
 .expertise-categories li:nth-of-type(2) {
   color: #ccc;
 }
@@ -566,38 +570,33 @@ body {
 }
 
 /****************************************
-  SLIDER
-*****************************************//* SLIDER WRAPPER *//****************************************
-  SINGLE-IMAGE CROSSFADE SLIDER
-*****************************************/
-/****************************************
-  SINGLE-IMAGE CROSSFADE SLIDER
-*****************************************/
-/****************************************
-  RESPONSIVE, SINGLE-IMAGE CROSSFADE SLIDER
+  SLIDER: SINGLE-IMAGE CROSSFADE
 *****************************************/
 
 /* The slider container (responsive) */
 .expertise-slider-wrap {
   position: relative;
   width: 100%;
-  max-width: 1400px;  /* Or any max width you prefer */
-  aspect-ratio: 16 / 9;  /* Maintains 16:9 ratio on all screen sizes */
+  max-width: 1400px;
+  aspect-ratio: 16 / 9; /* Maintains 16:9 ratio by default */
   margin: 0 auto;
   overflow: hidden;
+  min-height: 300px;
+  height: auto;
 }
 
 /* The container for all slides (stacked) */
 .slider-track {
   position: relative;
   width: 100%;
-  height: 100%; /* Takes the full height from aspect-ratio */
+  height: 100%;
 }
 
 /* Each slide is stacked absolutely; only .active is visible */
 .slide {
   position: absolute;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   width: 100%; 
   height: 100%;
   opacity: 0;
@@ -606,6 +605,7 @@ body {
   transition: 
     opacity 0.8s ease,
     filter 0.8s ease;
+  filter:blur(2px);
 }
 .slide.active {
   opacity: 1;
@@ -621,15 +621,16 @@ body {
   overflow: hidden;
 }
 
-/* Make the image fill the container while preserving ratio, cropping as needed */
+/* Fill container while preserving ratio (cropping if needed) */
 .image-container img {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 6px; /* Optional rounding */
+  border-radius: 6px; /* optional */
 }
 
-/* Bottom-left caption overlay (tweak location as desired) */
+/* Caption overlay */
 .image-caption {
   position: absolute;
   bottom: 1rem;
@@ -654,7 +655,8 @@ body {
 
 /****************************************
   CONTROLS
-*****************************************/.slider-controls {
+*****************************************/
+.slider-controls {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
@@ -677,7 +679,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
-
 .slider-prev:hover, 
 .slider-next:hover {
   background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
@@ -692,7 +693,6 @@ body {
   right: 2rem;
   z-index: 10;
 }
-
 .expertise-seeall a {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
@@ -703,63 +703,58 @@ body {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.3s ease;
 }
-
 .expertise-seeall a:hover {
   background: rgba(0,0,0,0.8);
   transform: translateX(5px);
 }
 
-
-/****************************************
-  MEDIA QUERIES (Optional Adjustments)
-*****************************************/
-/* If you want to change the aspect ratio or other behaviors on smaller screens, 
-   you can add breakpoints, e.g.: */
-
-@media (max-width: 768px) {
-  /* Maybe use a 4:3 ratio for mobile or let it remain 16:9 */
-  .expertise-slider-wrap {
-    aspect-ratio: 4 / 3;
-  }
-}
-
 /****************************************
   MEDIA QUERIES
 *****************************************/
+
+/* Tablet & below */
 @media (max-width: 992px) {
+  /* Stack top row vertically */
   .expertise-container {
     flex-direction: column;
     align-items: flex-start;
-    
-    
   }
-      /* Make the slider wrap fit its container width and auto height */
+  /* Keep a default aspect ratio or remove it if you want a different one. 
+     We'll remove the forced aspect-ratio for more vertical space. */
   .expertise-slider-wrap {
-    max-width: 100%;
-    aspect-ratio: auto; /* or remove if you prefer a fixed ratio on mobile */
-    height: 500px;
-  
+    aspect-ratio: auto; 
+    
+    min-height: 300px; 
   }
-  .expertise-categories-wrap {
-    margin-top: 2rem;
+  /* Remove any forced track width. 
+     We don't want side-by-side slides if it's a crossfade. */
+  .slider-track {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .expertise-slider-wrap {
+    height: 300px; /* Fixed height for slider container */
   }
   .slider-track {
-    width: 200%;
+    height: 300px; /* Ensure track fills the container */
   }
   .slide {
-    width: 100%;
-    flex-direction: column; /* stack images on smaller screens if desired */
-    
+    height: 300px; /* Each slide gets a fixed height */
   }
-
-  
-
+  .image-container {
+    height: 100%; /* Fill the slide’s height */
+  }
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Remove slider controls on smaller screens */
+  .slider-controls {
+    display: none;
+  }
 }
-
-
-
-
-
 
 /* WORK SECTION CONTAINER */
 .work-section {
@@ -1719,6 +1714,7 @@ body {
 .partner-card img {
   max-width: 100%;
   height: auto;
+  object-fit: cover;
   transition: transform 0.3s ease;
   margin-bottom: 1rem;
 }
@@ -1754,7 +1750,12 @@ body {
   }
 }
 
-
+@media screen and (max-width: 728px) {
+  .partner-card img {
+    width: 60%;  /* or a smaller percentage if you want an even smaller image */
+    margin: 0 auto; /* centers the image horizontally if desired */
+  }
+}
 /********************************************
   FAQ SECTION (With Particles & Accordion)
 ********************************************/
@@ -1908,6 +1909,11 @@ body {
   .faq-title {
     font-size: 2.2rem;
   }
+
+  .faq-question{
+
+    letter-spacing: 0.1rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1916,6 +1922,10 @@ body {
   }
   .faq-intro {
     font-size: 1rem;
+  }
+  .faq-question{
+
+    letter-spacing: 0.1rem;
   }
 }
 /****************************************
@@ -2141,18 +2151,18 @@ body {
     text-align: left;
   }
   .footer-cta {
-    font-size: 2.4rem;
+    font-size: 3.4rem;
   }
 }
 
 @media (max-width: 600px) {
   .footer-cta {
-    font-size: 1.8rem;
+    font-size: 3.4rem;
   }
   .footer-talk-btn {
     font-size: 1rem;
   }
   .footer-address {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 }

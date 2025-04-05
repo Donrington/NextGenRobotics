@@ -136,7 +136,63 @@ document.addEventListener('DOMContentLoaded', function() {
   startAutoPlay();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.slide');
+  const sliderTrack = document.querySelector('.slider-track');
+  let currentIndex = 0;
+  const slideCount = slides.length;
+  let autoPlayInterval = setInterval(nextSlide, 5000);
 
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slideCount;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+    showSlide(currentIndex);
+  }
+
+  // Reset auto-play timer
+  function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = setInterval(nextSlide, 5000);
+  }
+
+  // Touch swipe support only for screens <= 992px
+  if (window.innerWidth <= 992) {
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    sliderTrack.addEventListener('touchstart', e => {
+      touchstartX = e.changedTouches[0].screenX;
+    });
+
+    sliderTrack.addEventListener('touchend', e => {
+      touchendX = e.changedTouches[0].screenX;
+      handleGesture();
+      resetAutoPlay();
+    });
+
+    function handleGesture() {
+      if (touchendX < touchstartX - 50) { // Swipe left
+        nextSlide();
+      }
+      if (touchendX > touchstartX + 50) { // Swipe right
+        prevSlide();
+      }
+    }
+  }
+
+  // Initial display
+  showSlide(currentIndex);
+});
 
 
 
