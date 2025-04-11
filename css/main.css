@@ -557,6 +557,7 @@ form,
  * # preloader
  *
  * ------------------------------------------------------------------- */
+/* Preloader Wrapper */
 #preloader {
   position: fixed;
   top: 0;
@@ -565,186 +566,98 @@ form,
   bottom: 0;
   background: #1d1d1d;
   z-index: 500;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.no-js #preloader,
-.oldie #preloader {
-  display: none;
+/* Preloader Content */
+.preloader-content {
+  text-align: center;
+  position: relative;
 }
 
-#loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  padding: 0;
-  display: inline-block;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
-}
-
-#loader > div {
-  content: "";
-  background: #ffffff;
-  width: 6px;
-  height: 6px;
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Rotating Ring */
+.loader-ring {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border: 4px solid transparent;
+  border-top-color: #8dc63f;
+  border-right-color: #8dc63f;
   border-radius: 50%;
+  animation: spinRing 1.5s linear infinite;
+  box-shadow: 0 0 20px rgba(141,198,63,0.6);
 }
 
-#loader > div:nth-of-type(1) {
-  left: 15px;
+/* Pulsing Dots */
+.loader-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-#loader > div:nth-of-type(3) {
-  left: -15px;
+.loader-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #8dc63f;
+  border-radius: 50%;
+  animation: pulseDot 1.2s infinite ease-in-out;
 }
 
-/* dots jump */
-.dots-jump > div {
-  -webkit-animation: dots-jump 1.2s infinite ease;
-  animation: dots-jump 1.2s infinite ease;
-  animation-delay: 0.2s;
-}
-
-.dots-jump > div:nth-of-type(1) {
-  animation-delay: 0.4s;
-}
-
-.dots-jump > div:nth-of-type(3) {
+.loader-dots .dot:nth-child(1) {
   animation-delay: 0s;
 }
-
-@-webkit-keyframes dots-jump {
-  0% {
-    top: 0;
-  }
-
-  40% {
-    top: -6px;
-  }
-
-  80% {
-    top: 0;
-  }
-
+.loader-dots .dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.loader-dots .dot:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
-@keyframes dots-jump {
-  0% {
-    top: 0;
-  }
-
-  40% {
-    top: -6px;
-  }
-
-  80% {
-    top: 0;
-  }
-
+/* Company Label */
+.loader-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #fff;
+  opacity: 0;
+  animation: textFadeIn 1.5s ease-out forwards 0.5s;
+  text-transform: uppercase;
+  /* Optional neon glow */
+  text-shadow: 0 0 10px rgba(141,198,63,0.8);
 }
 
-/* dots fade */
-.dots-fade > div {
-  -webkit-animation: dots-fade 1.6s infinite ease;
-  animation: dots-fade 1.6s infinite ease;
-  animation-delay: 0.4s;
+/* Keyframes */
+@keyframes spinRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.dots-fade > div:nth-of-type(1) {
-  animation-delay: 0.8s;
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
 }
 
-.dots-fade > div:nth-of-type(3) {
-  animation-delay: 0s;
+@keyframes textFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@-webkit-keyframes dots-fade {
-  0% {
-    opacity: 1;
+/* Responsive adjustment (if needed) */
+@media (max-width: 480px) {
+  .loader-ring {
+    width: 60px;
+    height: 60px;
   }
-
-  40% {
-    opacity: 0.2;
+  .loader-dots .dot {
+    width: 10px;
+    height: 10px;
   }
-
-  80% {
-    opacity: 1;
+  .loader-text {
+    font-size: 1rem;
   }
-
-}
-
-@keyframes dots-fade {
-  0% {
-    opacity: 1;
-  }
-
-  40% {
-    opacity: 0.2;
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-}
-
-/* dots pulse */
-.dots-pulse > div {
-  -webkit-animation: dots-pulse 1.2s infinite ease;
-  animation: dots-pulse 1.2s infinite ease;
-  animation-delay: 0.2s;
-}
-
-.dots-pulse > div:nth-of-type(1) {
-  animation-delay: 0.4s;
-}
-
-.dots-pulse > div:nth-of-type(3) {
-  animation-delay: 0s;
-}
-
-@-webkit-keyframes dots-pulse {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  40% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.3);
-  }
-
-  80% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-}
-
-@keyframes dots-pulse {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  40% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.3);
-  }
-
-  80% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
 }
 
 

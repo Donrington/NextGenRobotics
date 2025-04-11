@@ -1,0 +1,162 @@
+
+  
+
+/* About Hero Section */
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('../images/dronesurvey.jpg') no-repeat center center;
+    background-size: 100%;
+
+    /* Animate the background to zoom in and out smoothly */
+    animation: bgZoom 10s ease-in-out infinite alternate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+  }
+  
+  /* Gradient overlay remains for a subtle darkening effect */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    z-index: 0;
+  }
+  
+  /* Hero Content - appears above the overlay */
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    animation: fadeInLeft 1.5s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  
+  /* Mini Tagline in Montserrat */
+  .mini-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    color: #8dc63f;
+    animation: fadeUp 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    animation-delay: 0.3s;
+  }
+  
+  /* Hero Title (Poiret One) */
+  .hero-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 6.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.1;
+    color: #fff;
+    animation: fadeUp 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    animation-delay: 0.6s;
+  }
+  
+  /* Hero Subtitle (Montserrat) */
+  .hero-subtitle {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+    max-width: 550px;
+    animation: fadeUp 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    animation-delay: 0.9s;
+  }
+  
+  /* Down Arrow Link */
+  .down-arrow {
+    display: inline-block;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease-out forwards, arrowBounce 1.5s infinite 2s ease-in-out;
+    animation-delay: 1.2s;
+    transition: transform 0.3s ease;
+    color: #fff;
+  }
+  
+  .down-arrow:hover {
+    transform: translateY(5px);
+  }
+  
+  /* -----------------
+     KEYFRAMES
+  ------------------- */
+  /* Background Zoom (Smooth zoom in/out effect) */
+  @keyframes bgZoom {
+    0% { background-size: 100%; }
+    100% { background-size: 110%; }
+  }
+  
+  /* Fade In Left for hero content */
+  @keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  
+  /* Fade Up for text elements */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Bouncing Arrow Animation */
+  @keyframes arrowBounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 3.8rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3.4rem;
+      letter-spacing: 3px;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+    .about-hero {
+        background-size: cover;
+        padding: 0 20px; /* Optional: Reduce horizontal padding on small screens */
+      }
+  }
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    .mini-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+    }
+    .about-hero {
+        background-size: cover;
+        padding: 0 20px; /* Optional: Reduce horizontal padding on small screens */
+      }
+  }
+
+  @media screen and (max-width: 600px) {
+    .about-hero {
+      background-size: cover;
+      padding: 0 20px; /* Optional: Reduce horizontal padding on small screens */
+    }
+  }

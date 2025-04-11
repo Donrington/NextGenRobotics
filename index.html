@@ -66,13 +66,19 @@
     <!-- preloader
     ================================================== -->
     <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
+      <div class="preloader-content">
+        <!-- Rotating glowing ring -->
+        <div class="loader-ring"></div>
+        <!-- Pulsing neon dots -->
+        <div class="loader-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
+        <!-- Animated Company Label -->
+        <div class="loader-text">NextGenRobotics</div>
+      </div>
     </div>
-
     <!-- site header
     ================================================== -->
     <header class="s-header">
@@ -248,7 +254,7 @@
           <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
           <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
           <li><a href="#0"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-          <li><a href="#0"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
+          
         </ul>
       
 
@@ -260,10 +266,21 @@
         </div>
 
       </section>
-
+      <section class="marquee-section">
+        <div class="marquee-container" id="marqueeContainer">
+          <div class="marquee" id="marquee">
+            <span>
+              SURVEILLANCE • LIDAR MAPPING • THERMAL IMAGING • AI ANALYTICS • INDUSTRIAL INSPECTION • DRONE DELIVERY • 360° INSIGHTS •
+            </span>
+            <span>
+              SURVEILLANCE • LIDAR MAPPING • THERMAL IMAGING • AI ANALYTICS • INDUSTRIAL INSPECTION • DRONE DELIVERY • 360° INSIGHTS •
+            </span>
+          </div>
+        </div>
+      </section>
 
       <section id="info" class="s-info">
-        <div class="vert-line2"></div>
+     
       
         <div id="particles-js-about" class="intro-particles2"></div>
         <!-- ABOUT SECTION -->
@@ -293,9 +310,9 @@
             
             <!-- Row of three images -->
             <div class="about-images" data-aos="fade-up">
-              <img src="images/drone4.jpg" alt="Drone 4" loading="lazy"/>
+              <img src="images/indusdrone2.jpg" alt="Drone 4" loading="lazy"/>
               <img src="images/camera1.jpg" alt="Camera 1" loading="lazy"/>
-              <img src="images/drone5.jpg" alt="Drone 5" loading="lazy"/>
+              <img src="images/indusdrone3.jpg" alt="Drone 5" loading="lazy"/>
             </div>
             
             <!-- Right-aligned description paragraph (What We Do) -->
@@ -366,23 +383,35 @@
     <div class="slider-track">
       
       <!-- SLIDE #1 -->
+<!-- SLIDE #1: Lagos Island with Railway -->
       <div class="slide active">
         <div class="image-container">
-          <img src="images/drone5.jpg" alt="Mont Blanc Drone" loading="lazy" />
+          <img src="images/lagostrain.jpg" alt="Aerial view of Lagos Island and train railway" loading="lazy" />
           <div class="image-caption">
-            <h3>Chasing Clouds at Mont Blanc's Pinnacle</h3>
-            <p>Mont Blanc, France</p>
+            <h3>Transit Over Lagos</h3>
+            <p>Lagos Island, Nigeria – Railway in Motion</p>
           </div>
         </div>
       </div>
-  
-      <!-- SLIDE #2 -->
+
+      <!-- SLIDE #2: Aerial View of Lagos Island -->
       <div class="slide">
         <div class="image-container">
-          <img src="images/drone4.jpg" alt="Another Drone Shot" loading="lazy" />
+          <img src="images/lagos.jpg" alt="Aerial view of Lagos Island" loading="lazy" />
           <div class="image-caption">
-            <h3>High-Altitude Aerial Insights</h3>
-            <p>Swiss Alps, Switzerland</p>
+            <h3>Vibrant Lagos Skyline</h3>
+            <p>Lagos Island, Nigeria</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE #3: Industrial Drone & Oil & Gas -->
+      <div class="slide">
+        <div class="image-container">
+          <img src="images/oilandgas2.jpg" alt="Industrial drone over oil & gas complex" loading="lazy" />
+          <div class="image-caption">
+            <h3>Industrial Oversight</h3>
+            <p>Oil &amp; Gas Industry, Nigeria</p>
           </div>
         </div>
       </div>
@@ -467,7 +496,7 @@
       <div class="work-cards" data-aos="fade-up">
         <!-- Card 1: Pipeline Inspection -->
         <div class="card">
-          <img src="images/oilspill.jpg" alt="Pipeline Inspection" loading="lazy"/>
+          <img src="images/DroneInspectingPipelines.jpeg" alt="Pipeline Inspection" loading="lazy"/>
           <h3 class="card-title">Pipeline Inspection &amp; Leak Detection</h3>
           <p class="card-subtext">
             Our industrial drones monitor pipelines with AI precision, identifying leaks and preventing costly downtime.
@@ -485,7 +514,7 @@
         </div>
         <!-- Card 3: Infrastructure & Environmental Monitoring -->
         <div class="card">
-          <img src="images/drone3.jpg" alt="Infrastructure Monitoring" loading="lazy"/>
+          <img src="images/drone8.jpg" alt="Infrastructure Monitoring" loading="lazy"/>
           <h3 class="card-title">Infrastructure &amp; Environmental Monitoring</h3>
           <p class="card-subtext">
             High-resolution aerial surveys provide comprehensive assessments for industrial sites and environmental compliance.
@@ -502,6 +531,7 @@
 
 
 <section class="partner-section" id="why-partner">
+
   <div class="partner-container">
     
     <!-- TOP ROW: Left & Right -->
@@ -746,7 +776,7 @@
       <!-- Example Partner Card 1 -->
       <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
         <img src="images/axis-aerospace-logo.svg" alt="Partner 1 Logo">
-        <p class="partner-name">Total Energies</p>
+        <p class="partner-name">Axis Aerospace</p>
       </div>
       <!-- Example Partner Card 2 -->
       <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
@@ -759,6 +789,21 @@
         <p class="partner-name">Microsoft</p>
       </div>
 
+
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="">
+        <p class="partner-name">Partner 4</p>
+      </div>
+
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="">
+        <p class="partner-name">Partner 5 </p>
+      </div>
+
+      <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="">
+        <p class="partner-name">Partner 6</p>
+      </div>
     </div><!-- /.partners-grid -->
     
   </div><!-- /.partners-container -->
@@ -882,6 +927,15 @@
   </div><!-- /.faq-container -->
 </section>
 
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top" id="backToTop">
+  <!-- You can use an SVG icon or FontAwesome icon; here’s an example SVG arrow -->
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</a>
+
    <!-- FOOTER SECTION -->
 <footer class="footer-section" id="contact">
   <div class="footer-container">
@@ -911,9 +965,9 @@
       <div class="footer-right" >
         <address class="footer-address">
           455 Robotics Avenue,<br>
-          Cityville, MA 55789,<br>
-          United States<br><br>
-          +1 (555) 123-4567<br>
+         Lekki Phase 1,<br>
+          Lagos, Nigeria<br><br>
+          +44 7974 480193<br>
           <a href="mailto:hello@nextgenrobotics.ai">hello@nextgenrobotics.ai</a>
         </address>
       </div>

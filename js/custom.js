@@ -20,6 +20,39 @@ interactiveElements.forEach(el => {
   });
 });
 
+
+
+const marquee = document.getElementById("marquee");
+
+let scrollPos = window.pageYOffset; // Last scroll position
+let marqueeOffset = 0;              // Current translateX offset
+let marqueeSpeed = 5;               // Speed on scroll
+let marqueeBaseSpeed = 0.9;         // Base continuous movement
+
+function updateMarqueePosition() {
+  marquee.style.transform = `translateX(${marqueeOffset}px)`;
+}
+
+// Adjust marquee movement on scroll
+document.addEventListener("scroll", () => {
+  const currentPos = window.pageYOffset;
+  if (currentPos > scrollPos) {
+    marqueeOffset -= marqueeSpeed;
+  } else {
+    marqueeOffset += marqueeSpeed;
+  }
+  updateMarqueePosition();
+  scrollPos = currentPos;
+});
+
+// Continuous movement
+function continuousMove() {
+  marqueeOffset -= marqueeBaseSpeed;
+  updateMarqueePosition();
+  requestAnimationFrame(continuousMove);
+}
+continuousMove();
+
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("navMenu");
@@ -416,4 +449,42 @@ document.addEventListener('DOMContentLoaded', function() {
       header.classList.remove('scrolled');
     }
   });
+});
+
+
+window.addEventListener("load", function() {
+  const preloader = document.getElementById("preloader");
+  // Set up a smooth opacity transition
+  preloader.style.transition = "opacity 0.8s ease";
+  preloader.style.opacity = "0";
+  // After transition completes, remove it from view
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 900);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const backToTopBtn = document.getElementById("backToTop");
+  
+  // Function to check scroll position and toggle button visibility
+  function toggleBackToTop() {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+  
+  // Smooth scroll back to top when clicking the button
+  backToTopBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+  
+  // Check on page load and on scroll
+  window.addEventListener("scroll", toggleBackToTop);
+  toggleBackToTop();
 });
